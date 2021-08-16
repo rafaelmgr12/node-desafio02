@@ -42,35 +42,17 @@ function checksTodoExists(request, response, next) {
     return response.status(400).json({ error: "Invalid todo id" });
   }
 
-  const user = users.find((user) => user.username === username);
-  __dirname;
+  const user = users.find(user => user.username===username);__dirname
 
-  if (!user) {
+  if(!user) {
     return response.status(404).json({ error: "User not found" });
   }
-  const todo = user.todos.find((user) => user.id === id);
-
-  if (!todo) {
-    return response.status(404).json({ error: "Todo not found" });
-  }
+  cont todo = user.todos.find(user => user.id === id);
   
-  request.user = user;
-  request.todo = todo;
-
-  return next();
 }
 
 function findUserById(request, response, next) {
   // Complete aqui
-  const { id } = request.params;
-
-  const user = users.find(user => user.id === id);
-  if (!user) {
-    return reponse.status(404).json({ error: "User not found" });
-  }
-  resquest.user = user;
-
-  return next();
 }
 
 app.post("/users", (request, response) => {

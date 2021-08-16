@@ -53,24 +53,10 @@ function checksTodoExists(request, response, next) {
   if (!todo) {
     return response.status(404).json({ error: "Todo not found" });
   }
-  
-  request.user = user;
-  request.todo = todo;
-
-  return next();
 }
 
 function findUserById(request, response, next) {
   // Complete aqui
-  const { id } = request.params;
-
-  const user = users.find(user => user.id === id);
-  if (!user) {
-    return reponse.status(404).json({ error: "User not found" });
-  }
-  resquest.user = user;
-
-  return next();
 }
 
 app.post("/users", (request, response) => {
